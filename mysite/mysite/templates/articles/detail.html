@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %} <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
 
 {% block title %}{{article.title}}{% endblock %}
+  
+
 
 {% block content %}
 
@@ -14,10 +18,12 @@
 	{% if latest_comments_list %}
 		{%for c in latest_comments_list %}
 			<p>
-				<strong>{{c.author_name}}</strong>
+				<strong>{{c.author_name}}:</strong><br>
 				{{c.text}}
 			</p>
 			<em>{{c.pub_date}}</em>
+
+			<hr>
 				
 		{% endfor %}	
 	{% else %}
